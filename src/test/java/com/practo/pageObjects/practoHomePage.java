@@ -19,5 +19,23 @@ public class practoHomePage extends basePage{
 		return btnLogin;
 	}
 	
+	@FindBy(xpath="//input[@placeholder='Search location']")
+	public WebElement location;
+	public WebElement loctaion() {
+		return location;
+	}
+	
+	@FindBy(xpath="//input[@placeholder='Search doctors, clinics, hospitals, etc.']")
+	public WebElement searchAppointmentFor;
+	public WebElement searchAppointmentFor() {
+		return searchAppointmentFor;
+	}
+	
+	@FindBy(xpath="//*[@id=\"c-omni-container\"]/div/div[2]/div[2]/div[1]/div[1]/span[1]/div")
+	public WebElement selectAppointment;
+	public WebElement selectAppointment() {
+		return selectAppointment;
+	}
+	
 	
 }

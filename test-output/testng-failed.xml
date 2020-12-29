@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.practo.testScripts.practoLoginLogin">
+      <class name="com.practo.testScripts.bookAppointmentFor">
         <methods>
           <include name="launchBrowser"/>
-          <include name="credForLogin"/>
+          <include name="setAppointment"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.practo.testScripts.practoLoginLogin -->
+      </class> <!-- com.practo.testScripts.bookAppointmentFor -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

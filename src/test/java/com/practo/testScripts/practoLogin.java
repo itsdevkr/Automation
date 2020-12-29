@@ -14,6 +14,11 @@ public class practoLogin extends baseTest{
 			practoHomePage pHomePage = new practoHomePage(driver);
 			pHomePage.btnLogin.click();
 			
+			
+			  pHomePage.loctaion().click(); pHomePage.loctaion().sendKeys("");
+			  pHomePage.loctaion().sendKeys("Chennai");
+			 
+			
 		}catch(Exception e) {
 			Assert.fail();
 		}

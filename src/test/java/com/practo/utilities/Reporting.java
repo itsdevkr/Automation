@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 
 import org.testng.ITestContext;
 import org.apache.poi.hpsf.Date;
-import org.apache.poi.xdgf.usermodel.section.CharacterSection;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
@@ -16,20 +15,22 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentReporter;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Reporting extends TestListenerAdapter{
 	
-	public ExtentReporter htmlReporter;
+	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest logger;
 	
-	public void onStart(ITestContext testContext)
+	public void onStart(ITestContext testContext) {
 	
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//.format(new Date());//time stamp
 		String repName = "Test-Report-"+timeStamp+".html";
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/"+repName);//specify location
+		
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/"+repName);//specify location;
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir")+ "/extent-config.xml");
 		
 		extent = new ExtentReports();
@@ -39,9 +40,9 @@ public class Reporting extends TestListenerAdapter{
 		extent.setSystemInfo("environmnet", "QA");
 		extent.setSystemInfo("user", "Dev");
 		
-		htmlReporter.config().setDocumentTitle("Automation Test Project");//Title of Report
+		htmlReporter.config().setDocumentTitle("Automation Test Project");
 		htmlReporter.config().setReportName("Functional Test Report");//Name of the Report
-		htmlReporter.config().setTestViewChartLocation(CharacterSection.TOP);//Location of the Chart
+		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);//Location of the Chart
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
 

@@ -3,6 +3,8 @@ package com.practo.testScripts;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.practo.library.baseTest;
@@ -26,7 +28,14 @@ public class practoLoginLogin extends baseTest{
 			pLoginPage.clickLogin().click();
 			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			
+			String expTitle = "Practo | Video Consultation with Doctors, Book Doctor Appointments, Order Medicine, Diagnostic Tests";
+			String actTitle = driver.getTitle();
+			
+			AssertJUnit.assertEquals(expTitle, actTitle);
+			Reporter.log("Title is Matched!!", true);
+			
 		}catch(Exception e) {
+			Reporter.log("Title is NOT Matched!!", true);
 			Assert.fail();
 		}
 	}

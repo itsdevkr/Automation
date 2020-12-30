@@ -1,5 +1,6 @@
 package com.practo.testScripts;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -14,7 +15,7 @@ import com.practo.pageObjects.practoLoginPage;
 public class practoLoginLogin extends baseTest{
 	
 	@Test
-	public void credForLogin() {
+	public void credForLogin() throws IOException {
 		try {
 			
 			practoHomePage pHomePage = new practoHomePage(driver);
@@ -32,9 +33,10 @@ public class practoLoginLogin extends baseTest{
 			String actTitle = driver.getTitle();
 			
 			AssertJUnit.assertEquals(expTitle, actTitle);
-			Reporter.log("Title is Matched!!", true);
+			Reporter.log("Title is Matched, Credentials for Login is Verified!!", true);
 			
 		}catch(Exception e) {
+			captureScreen(driver, "credForLogin");
 			Reporter.log("Title is NOT Matched!!", true);
 			Assert.fail();
 		}
